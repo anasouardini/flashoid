@@ -20,8 +20,10 @@ class DictionaryFactory extends Factory
         $user = User::all()->first();
         return [
             'user_id' => $user->id,
-            'name' => 'Test Dictionary',
+            'name' => "Test Dictionary {$this->faker->randomNumber()}",
             'description' => 'Test Description',
+            'visited_at' => $this->faker->dateTimeThisMonth(),
+            'votes' => 0,
         ];
     }
 }

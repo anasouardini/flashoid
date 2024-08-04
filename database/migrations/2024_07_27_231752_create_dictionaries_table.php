@@ -16,9 +16,11 @@ return new class extends Migration
             $table->string('id')->primary();
             // $table->foreignUuid('user')->references('id')->on('users')->onDelete('cascade');
             $table->foreignIdFor(User::class)->onDelete('cascade');
-            $table->timestamps();
             $table->string('name');
             $table->longText('description');
+            $table->timestamps();
+            $table->timestamp('visited_at')->nullable();
+            $table->integer('votes');
         });
     }
 

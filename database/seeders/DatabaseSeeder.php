@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Dictionary;
-use App\Models\EntriesModification;
+use App\Models\FlashcardModification;
 use App\Models\Entry;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -20,12 +20,12 @@ class DatabaseSeeder extends Seeder
         $user = User::factory()->create();
 
         echo "> Seeding Dictionary\n";
-        $dictionary = Dictionary::factory()->count(10)->create();
+        $dictionary = Dictionary::factory()->count(30)->create();
 
         echo "> Seeding Entry\n";
         $entry = Entry::factory()->count(10)->create();
 
         echo "> Seeding DictinoaryModification\n";
-        $dictionaryModification = EntriesModification::factory()->count(10)->create();
+        $dictionaryModification = FlashcardModification::factory()->count(10)->create();
     }
 }

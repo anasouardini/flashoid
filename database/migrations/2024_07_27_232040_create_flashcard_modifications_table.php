@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('entries_modifications', function (Blueprint $table) {
+        Schema::create('flashcard_modifications', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignIdFor(Dictionary::class)->onDelete('cascade');
             $table->enum('action', ['create', 'read', 'update', 'delete']);
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('entries_modifications');
+        Schema::dropIfExists('flashcard_modifications');
     }
 };
