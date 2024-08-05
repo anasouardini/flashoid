@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class FlashcardModificationController extends Controller
+class FlashcardsStatisticsController extends Controller
 {
     //
 }

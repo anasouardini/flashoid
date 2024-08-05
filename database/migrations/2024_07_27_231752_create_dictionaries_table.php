@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Dictionary;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -18,6 +19,8 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->onDelete('cascade');
             $table->string('name');
             $table->longText('description');
+            $table->string('tags');
+            $table->string('clone_of_id');
             $table->timestamps();
             $table->timestamp('visited_at')->nullable();
             $table->integer('votes');

@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Entry extends Model
+class DictionaryEntry extends Model
 {
     use HasFactory, HasUuids;
 
     public static function getEntriesPaginated(){
-        return Entry::paginate(10);
+        return DictionaryEntry::paginate(10);
     }
 }

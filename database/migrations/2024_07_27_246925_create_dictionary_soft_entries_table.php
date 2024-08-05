@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Dictionary;
+use App\Models\DictionaryEntry;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,13 +12,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('entries', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->foreignIdFor(Dictionary::class)->onDelete('cascade');
+        Schema::create('dictionary_soft_entries', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(DictionaryEntry::class)->nullable();
             $table->string('front');
-            $table->longText('back');
-            $table->enum('status', ['draft', 'researched', 'familiarized', 'grasped', 'applied']);
-            $table->integer('views');
+            $table->string('back');
+            $table->string('action'); // add, update, delete
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('entries');
+        Schema::dropIfExists('dictionary_soft_entries');
     }
 };
