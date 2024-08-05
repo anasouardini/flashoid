@@ -12,11 +12,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('flashcard_modifications', function (Blueprint $table) {
+        Schema::create('dictionary_modifications', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignIdFor(Dictionary::class)->onDelete('cascade');
-            $table->enum('action', ['create', 'read', 'update', 'delete']);
-            $table->enum('updated_property', ['front', 'back', 'status', null]);
+            $table->enum('action', ['create', 'read', 'status_update', 'delete']);
+            // $table->enum('updated_column', ['front', 'back', 'status', null]);
+            $table->enum('status', ['draft', 'researched', 'familiarized', 'grasped', 'applied']);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('flashcard_modifications');
+        Schema::dropIfExists('dictionary_modifications');
     }
 };
