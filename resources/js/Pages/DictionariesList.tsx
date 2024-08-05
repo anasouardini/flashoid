@@ -1,4 +1,5 @@
 import { Dictionary } from "@/types/Database"
+import { Link } from "@inertiajs/react";
 
 interface Props {
     dictionaries: {
@@ -13,7 +14,7 @@ export default function DictionariesList(props: Props) {
         <h1>Dictionaries List</h1>
         {
             paginatedDictionaries.data.map((dictionary) => {
-                return <a href={`/dictionaries/${dictionary.id}`} key={dictionary.id}>{dictionary.name}</a>
+                return <Link href={`/dictionaries/${dictionary.id}`} key={dictionary.id}>{dictionary.name}</Link>
             })
         }
     </main>

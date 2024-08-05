@@ -1,4 +1,5 @@
 import { Dictionary } from "@/types/Database";
+import { Link } from "@inertiajs/react";
 
 interface Props {
     recentlyVisited: Dictionary[]
@@ -12,12 +13,12 @@ export default function RecentlyVisited(props: Props) {
                 {
                     props.recentlyVisited.map((recent) => {
                         return (
-                            <a key={recent.name} href={`/dictionaries/${recent.id}`}>
+                            <Link key={recent.name} href={`/dictionaries/${recent.id}`}>
                                 <div className="mr-4 mb-4">
                                     <h3>{recent.name}</h3>
                                     <span className="text-sm text-gray-500">{recent.description}</span>
                                 </div>
-                            </a>
+                            </Link>
                         );
                     })
                 }
